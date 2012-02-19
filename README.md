@@ -91,4 +91,4 @@ Planned features include, but are not limited to:
 
 ## EOF
 
-Stay tuned and/or follow me at http://twitter.com/adamkiss.
+Stay tuned and/or follow me at https://twitter.com/#!/adamkiss.

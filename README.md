@@ -61,9 +61,34 @@ array(3) {
 3. Set Plaintext Matrix as Textformatter for the textarea
 4. Use and be happy
 
-* – If you are on a OS X, use absolute paths (as `/Users/adam/lib/.../module` instead of e.g. `./module` if you're in your modules directory) – otherwise you may run into 'too many redirects' problem.
+\* – If you are on a OS X, use absolute paths (as `/Users/adam/lib/.../module` instead of e.g. `./module` if you're in your modules directory) – otherwise you may run into 'too many redirects' problem.
 
 ## License
 
 See LICENSE
-      
+
+---
+
+## Roadmap
+
+Planned features include, but are not limited to:
+
+### v1.1
+
+* Transform 'true' and 'false' to boolean true and false, respectively
+
+### v2
+
+* Transformation from TextFormatter into Inputfield to allow:
+  * content trimming
+  * syntax checking
+  * replacement of known incorrect values
+
+### v2.1
+
+* Set required keys (and validate against them)
+* use one of the keys as an index to transform the returned array to associated array
+
+## EOF
+
+Stay tuned and/or follow me at http://twitter.com/adamkiss.

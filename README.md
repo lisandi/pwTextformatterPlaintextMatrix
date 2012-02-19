@@ -1,6 +1,6 @@
-# PW Textformatter: Query Records
+# PW Textformatter: Plaintext Matrix 1.0.0
 
-ProcessWire Textformatter module, that adds record parsing to your textarea. Each line is a separate record, that gets parsed with ProcessWire's Query parsing module. This allows you to enter your small structures in natural language, store them in one field and have them returned as an array of objects.
+Transform your textareas into matrixes: enter your records in plaintext – ProcessWire query syntax, and upon page loading, get your data back as array of objects with typed values!
 
 ---
 
@@ -10,7 +10,7 @@ ProcessWire Textformatter module, that adds record parsing to your textarea. Eac
 
 ```
 id=1, name=ProcessWire, type="Very fast & simple CMS"
-id=2, name=Drupal, type="CMS favorized by many"
+id=2, name=Drupal, type="CMS, favorited by many"
 id=3, name=Joomla, type="not so good CMS"
 ```
 
@@ -56,9 +56,14 @@ array(3) {
 
 ## Installation
 
---- WiP ---
+1. Install module as usually (either download and copy into your `site/modules/` directory, or clone somewhere else and symlink this directory into your site **\***)
+2. Create new textarea
+3. Set Plaintext Matrix as Textformatter for the textarea
+4. Use and be happy
+
+* – If you are on a OS X, use absolute paths (as `/Users/adam/lib/.../module` instead of e.g. `./module` if you're in your modules directory) – otherwise you may run into 'too many redirects' problem.
 
 ## License
 
-See LICENSE.md
+See LICENSE
       

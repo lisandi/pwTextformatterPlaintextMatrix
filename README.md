@@ -28,7 +28,29 @@ id=3, name=Joomla, type="not so good CMS"
 
 ### Returned Data
 
---- WiP ---
+```
+
+array(3) {
+  [0]=>
+  object(stdClass)#178 (3) {
+    ["id"]=> string(1) "1"
+    ["name"]=> string(11) "ProcessWire"
+    ["type"]=> string(22) "Very fast & simple CMS"
+  }
+  [1]=>
+  object(stdClass)#155 (3) {
+    ["id"]=> string(1) "2"
+    ["name"]=> string(6) "Drupal"
+    ["type"]=> string(21) "CMS favorized by many"
+  }
+  [2]=>
+  object(stdClass)#176 (3) {
+    ["id"]=> string(1) "3"
+    ["name"]=> string(6) "Joomla"
+    ["type"]=> string(15) "not so good CMS"
+  }
+}
+```
 
 ---
 

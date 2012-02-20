@@ -18,6 +18,9 @@
 
 class TextformatterPlaintextMatrix extends Textformatter {
 
+	/*
+		PROCESSWIRE MODULE INFORMATION
+	*/
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Plaintext Matrix', 
@@ -26,15 +29,60 @@ class TextformatterPlaintextMatrix extends Textformatter {
 		); 
 	}
 
-	/**
-	* Detects whether parameter is numeric and returns retyped value (if needed/possible)
-	* 
-	* @param string $value – string to check
-	* @return string|int|float - retyped value
+	/*
+		TYPE MODYFYING FUNCTIONS & VARIABLES
 	*/
-	private function numericTransform($value){
-		return is_numeric($value) ? $value + 0 : $value;
+
+	/**
+	* Transforms string into int|float (based on existence of comma [and other float values])
+	*
+	* note: this is little hack-ish version of both FILTER_VALIDATE_INT & FILTER_VALIDATE_FLOAT in
+	* one function. If you feel bad about it... sorry
+	*
+	* @param string $value
+	* @return int|float
+	*/
+	private function transform_Numeric($value){
+		return $value + 0;
 	}
+
+	/**
+	* Filters value and returns either boolean-ized value or null on failure
+	*
+	* @param mixed $value
+	* @return null|boolean
+	*/
+	private function transform_Boolean($value){
+		return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+	}
+
+	/**
+	* Detects type of value and retypes it if possible
+	* 
+	* @param string|array $value – string to check
+	* @return string|array|int|float|boolean - retyped value
+	*/
+	private function transformValue($value){
+		if (is_string($value)) {
+			if (is_numeric($value)) {
+				// return int|float
+				return $this->transform_Numeric($value);
+			} else {
+				$testValue = $this->transform_Boolean($value);
+				if ($testValue !== null){
+					//return boolean
+					return $testValue;
+				}
+			}
+		}
+
+		//fallback - return $value (either string or array)
+		return $value;
+	}
+
+	/*
+		PROCESSWIRE FORMAT FUNCTION
+	*/
 
 	/**
 	* Textarea formatting functions – accepts textarea's content and returns it 'matrixed'
@@ -62,7 +110,7 @@ class TextformatterPlaintextMatrix extends Textformatter {
 			foreach ($queryParser as $kvpair){
 
 				//add key => (possibly retyped) value pair
-				$kvarray[$kvpair->field] = $this->numericTransform($kvpair->value);
+				$kvarray[$kvpair->field] = $this->transformValue($kvpair->value);
 
 			}
 

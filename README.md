@@ -1,4 +1,4 @@
-# PW Textformatter: Plaintext Matrix 1.0.0
+# PW Textformatter: Plaintext Matrix 1.1.0 (final)
 
 Transform your textareas into matrixes: enter your records in plaintext – ProcessWire query syntax, and upon page loading, get your data back as array of objects with typed values!
 
@@ -69,13 +69,23 @@ See LICENSE
 
 ---
 
+## Changelog
+
+### v1.1 final
+
+* structured value transforming (retyping) a little
+* added `bool` test – for strings `yes`, `true` and others and `no`, `false` and others now returns `true` and `false` respectively
+* this is '**final**' version – we hit the limit of possibilites for textformatter, the next one will be and fieldtype (probably)
+
+### v1.0
+
+* First, tested version
+* Parses textarea correctly
+* Retypes `int` and `float` values
+
 ## Roadmap
 
-Planned features include, but are not limited to:
-
-### v1.1
-
-* Transform 'true' and 'false' to boolean true and false, respectively
+Planned features will be based on current code, but will be done as a ProcessWire FieldType.
 
 ### v2
 
